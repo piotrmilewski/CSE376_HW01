@@ -1,0 +1,5 @@
+hello it is me
+a bunch of sample text that you will use
+i hope that i make it into the output file
+otherwise i will be quite sad cause that means your program is no good
+thanks for writing me

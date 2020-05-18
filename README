@@ -1,0 +1,31 @@
+### What I did
+1. I started off by getting the program to interpret command arguments using optarg. I did this step first because I figured it was an easy part that the professor went over in class and it would help me in the long run since I would have all the arguments processed for later on.
+2. My next step was integrating a read+write loop in the program. I first got the program to open a file for reading and close it, then read a few bytes from the file and printf it, then make the program read all the data from the file in a loop until there was no more. Next I did the same but for writing to a new file and once that was done i put the 2 together and the result was a read+write loop.
+3. After I got the read+write loop to work I decided to get the debug flag to work. I created a couple macros to simplify the process for me but even though i managed to make them as short as possible, as I started to incorporate them into my code my code started to become hard to read since every 1 line call suddenly became a 3 line call. Thus I decided to postpone this part and then work on the makefile.
+4. The makefile was quite simple since I've made them in the past and I used the same format as I did in the past but I did run into an issue later on since I accidentally created a variable with a lowercase letter that I later on used with a capital letter. The compiler didn't catch this issue and it took me a while to figure out why my code wasn't compiling with the required libraries during the encryption/decryption part of the assignment. 
+5. After I got the makefile to work I started work on the encryption/decryption part of the assignment since by this point I got my program to read/write, copy a file, handle many flags, and handle errors. I started work on encryption/decryption by going to the openssl website and I quickly found out that it was quite difficult to make sense of how to implement encryption/decryption by just looking at function definitions. So I found an example on the openssl website: https://wiki.openssl.org/index.php/EVP_Symmetric_Encryption_and_Decryption. After reading through the example and cross referencing the functions they used with the definitions found on their website I began to understand how the code worked and used their implementation to come up with my own implementation.
+6. Once I got encryption/decryption to work with my read/write loop, I decided to go back to my debug code and started to put it before and after lib/sys functions. This was one of my better decisions while working on this assignment since after I put in the DEBUG functions, my code became harder to read since each function call was surrounded by DEBUG functions.
+7. Once I got the DEBUG functionality to work I started work on the test scripts. The test scripts seemed daunting at first but once I got the first one done the other 2 took a very short amount of time. I made sure to update my make file with make tests to make sure that they can be run with ease. 
+
+### files that are included in my submission 
+./main.c
+^ has all the runnable code for the assignment
+./makefile
+^ compiles all the code, cleans it, and runs the tests
+./README
+^ the file that you are reading right now
+./test1.sh
+^ test #1
+./test2.sh
+^ test #2
+./test3.sh
+^ test #3
+and all of the files in the  ./tests directory
+^ contains all the files needed to run the test scripts
+
+### notes
+1. I didn't do any of the extra credit other than submitting the assignment early.
+2. I do believe I got all the required functionality to work.
+3. I used only one source for my code and it was: https://wiki.openssl.org/index.php/EVP_Symmetric_Encryption_and_Decryption . The specific lines of code that I used come from the "Setting it up", "Encrypting the message" and "Decrypting the message" sections and they were used in my encrypt(), decrypt() and main() functions in main.c.
+4. The only functions that don't have DEBUG printouts are printf() and perror() because if they fail then they don't affect the overall functionality of the program and there isn't anything to debug for them.
+
